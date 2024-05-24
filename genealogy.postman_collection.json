@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "33da77be-3108-4ff0-9e03-7e8eecac26f1",
+		"name": "genealogy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25351956"
+	},
+	"item": [
+		{
+			"name": "get family tree by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/family/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"family",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get member family tree by family id and member id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/family/1/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"family",
+						"1",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit member detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 10,\r\n    \"familyId\" : 1,\r\n    \"firstName\" : \"Kirk\",\r\n    \"lastName\" : \"Smith\",\r\n    \"gender\" : \"Male\",\r\n    \"isAdopted\" : false,\r\n    \"dob\" : \"1980-05-15\",\r\n    \"DOD\" : \"2002-01-01\",\r\n    \"parentId\" : 1,\r\n    \"marriages\":[\r\n        {\r\n            \"spouseId\" : 7,\r\n            \"maritalStatus\" : \"MARRIED\",\r\n            \"marriageDate\" : \"2000-01-01\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/member/update-detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"member",
+						"update-detail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add member to family tree",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"familyId\" : 1,\r\n    \"firstName\" : \"Kirk\",\r\n    \"lastName\" : \"Smith\",\r\n    \"gender\" : \"prefer not to say\",\r\n    \"isAdopted\" : false,\r\n    \"dob\" : \"1980-05-15\",\r\n    \"DOD\" : \"2002-01-01\",\r\n    \"parentId\" : 1,\r\n    \"marriages\":[\r\n        {\r\n            \"spouseId\" : 7,\r\n            \"maritalStatus\" : \"MARRIED\",\r\n            \"marriageDate\" : \"2000-01-01\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/member/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"member",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

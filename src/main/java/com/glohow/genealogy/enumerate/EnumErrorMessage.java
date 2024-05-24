@@ -1,0 +1,14 @@
+package com.glohow.genealogy.enumerate;
+
+public enum EnumErrorMessage {
+    FAMILY_NOT_FOUND,
+    MARRIAGE_NOT_FOUND,
+    MEMBER_NOT_FOUND,
+    ERROR_UPDATE_USER,
+    ERROR_ADD_USER,
+    ERROR_NO_ROOT_DETECTED,
+    ERROR_CHILD_MAP,
+    ERROR_SET_PARENT,
+    ERROR_BUILD_HIERARCHY,
+    ERROR_FAMILY_TREE
+}

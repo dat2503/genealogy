@@ -1,0 +1,30 @@
+services:
+  postgresdb:
+    image: postgres:latest
+    container_name: postgres-genealogy
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345678
+    volumes:
+      - local-pgdata:/var/lib/postgresdb/data
+
+  genealogy:
+    build:
+      context: .
+    image: genealogy/genealogy-service:latest
+    environment:
+      - SPRING_DATASOURCE_URL= jdbc:postgresql://postgres-genealogy:5432/admin
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=12345678
+      - SPRING_DATASOURCE_DLL_AUTO=update
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresdb
+
+volumes:
+  local-pgdata:
+
